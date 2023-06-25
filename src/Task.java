@@ -16,26 +16,15 @@ public class Task {
         System.out.println(isPalindrome(str4));
         System.out.println(isPalindrome(str5));
         System.out.println(isPalindrome(str6));
-
-
-
     }
 
     public static boolean isPalindrome(String str){
         str=str.toLowerCase();
-        str=str.replace(" ","");
-        str=str.replace(".","");
-        str=str.replace(",","");
-        str=str.replace("-","");
-        str=str.replace("?","");
-        str=str.replace("!","");
-        str=str.replace(":","");
-        str=str.replace(";","");
+        str=str.replaceAll("([ ,.!?:;-])","");
         int length = str.length();
         for (int i=0;i<length/2;i++){
             if (str.charAt(i)!=str.charAt(length-1-i)){
-                return false;
-            }
+                return false;            }
         }
         return true;
     }
